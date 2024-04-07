@@ -30,20 +30,20 @@ function addMovie(movies){
 
     movieTitle = movies.title
     movieId = movies.id
-    let liFilmss = document.createElement("li");
+    let liFilm = document.createElement("li");
     if(!remaining > 0)
-    {  liFilmss.className = "sold-out"
+    {  liFilm.className = "sold-out"
     }
 
-    ulFilms.appendChild(liFilmss);
+    ulFilms.appendChild(liFilm);
 
     let movieSpan = document.createElement("span");
     movieSpan.innerText = movieTitle;
-    liFilmss.appendChild(movieSpan);
+    liFilm.appendChild(movieSpan);
 
     let deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete"
-    liFilmss.appendChild(deleteButton); 
+    liFilm.appendChild(deleteButton); 
 
     deleteButton.addEventListener('click', () => {
         deleteMovie(movies)
@@ -84,7 +84,7 @@ function updateDom(movies){
         }
     };
     idBuyticket.dataset.movieId = movies.id;
-    let button = document.querySelector([data-movie-id="${movieId}"]);
+    let button = document.querySelector(`[data-movie-id="${movieId}"]`);
     button.innerText = availabiity;
 }
 function buyTicket(movies){
